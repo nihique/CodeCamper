@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeCamper.Web", "CodeCamper.Web\CodeCamper.Web.csproj", "{91E49F47-5626-414C-B77E-F13E5B7AC8C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeCamper.Data", "CodeCamper.Data\CodeCamper.Data.csproj", "{3C403453-97B8-4582-BDE7-F7D68C3FC6CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeCamper.Model", "CodeCamper.Model\CodeCamper.Model.csproj", "{EF051FF9-A39D-4A95-9B1E-1D22FE4EFBB5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{91E49F47-5626-414C-B77E-F13E5B7AC8C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91E49F47-5626-414C-B77E-F13E5B7AC8C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91E49F47-5626-414C-B77E-F13E5B7AC8C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91E49F47-5626-414C-B77E-F13E5B7AC8C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C403453-97B8-4582-BDE7-F7D68C3FC6CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C403453-97B8-4582-BDE7-F7D68C3FC6CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C403453-97B8-4582-BDE7-F7D68C3FC6CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C403453-97B8-4582-BDE7-F7D68C3FC6CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF051FF9-A39D-4A95-9B1E-1D22FE4EFBB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF051FF9-A39D-4A95-9B1E-1D22FE4EFBB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF051FF9-A39D-4A95-9B1E-1D22FE4EFBB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF051FF9-A39D-4A95-9B1E-1D22FE4EFBB5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
