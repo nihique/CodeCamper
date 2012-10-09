@@ -1,4 +1,6 @@
 ﻿using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
+using CodeCamper.Data.Configuration;
 using CodeCamper.Data.SampleData;
 using CodeCamper.Model;
 
@@ -24,5 +26,12 @@ namespace CodeCamper.Data
         public DbSet<TimeSlot> TimeSlots { get; set; }
         public DbSet<Track> Tracks { get; set; }
 
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+
+            modelBuilder.Configurations.Add(new SessionConfiguration());
+            modelBuilder.Configurations.Add(new AttendanceConfiguration());
+        }
     }
 }

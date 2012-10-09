@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace CodeCamper.Model
@@ -22,5 +23,8 @@ namespace CodeCamper.Model
 
         public string ImageSource { get; set;}
         public string Bio { get; set;}
+
+        public virtual ICollection<Session> SpeakerSessions { get; set; }
+        public virtual ICollection<Attendance> AttendanceList { get; set; }
     }
 }

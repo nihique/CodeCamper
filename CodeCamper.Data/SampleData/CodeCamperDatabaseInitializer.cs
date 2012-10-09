@@ -36,7 +36,7 @@ namespace CodeCamper.Data.SampleData
                 persons.Take(AttendeesWithFavoritesCount).ToArray());
         }
 
-        protected Random Rand = new Random();
+        private readonly Random _rand = new Random();
 
         private List<Room> _roomsForGeneratedSessions;
         private List<Room> _roomsForWellKnownSessions;
@@ -258,18 +258,18 @@ namespace CodeCamper.Data.SampleData
                 // Weight the draw of speakers towards the "well-known" speakers
                 // Ensure a person only speaks once in a timeslot
                 //var speakerIx = Rand.Next(firstKnownSpeakerIx, firstCrowdIx+5);
-                var speakerIx = Rand.Next(firstKnownSpeakerIx, firstKnownSpeakerIx + chosenCount);
+                var speakerIx = _rand.Next(firstKnownSpeakerIx, firstKnownSpeakerIx + chosenCount);
                 if (speakerIx >= firstCrowdIx || speakerIxs.Contains(speakerIx))
                 {
                     do
                     {
-                        speakerIx = Rand.Next(firstCrowdIx, Math.Min(75, personsCount)); //Max speakers allowed are 75
+                        speakerIx = _rand.Next(firstCrowdIx, Math.Min(75, personsCount)); //Max speakers allowed are 75
                     } while (speakerIxs.Contains(speakerIx));
                 }
                 speakerIxs.Add(speakerIx);
 
                 var speaker = persons[speakerIx];
-                var level = levels[Rand.Next(0, levelCount)];
+                var level = levels[_rand.Next(0, levelCount)];
                 var session =
                     new Session
                     {
@@ -351,7 +351,7 @@ namespace CodeCamper.Data.SampleData
 
                     if (evalCount <= 0) continue;
 
-                    attendance.Rating = Rand.Next(1, 6);// rating in 1..5
+                    attendance.Rating = _rand.Next(1, 6);// rating in 1..5
                     attendance.Text = textGenerator.GenSentences(10, textSource);
                     evalCount--;
                 }

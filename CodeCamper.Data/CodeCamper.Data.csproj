@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\AttendanceConfiguration.cs" />
     <Compile Include="CodeCamperDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SampleData\CodeCamperDatabaseInitializer.cs" />
@@ -58,6 +59,7 @@
     <Compile Include="SampleData\SampleTrack.cs" />
     <Compile Include="SampleData\TagsGenerator.cs" />
     <Compile Include="SampleData\TheChosen.cs" />
+    <Compile Include="Configuration\SessionConfiguration.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CodeCamper.Model\CodeCamper.Model.csproj">
