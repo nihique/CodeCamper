@@ -1,8 +1,10 @@
+using System.ComponentModel.DataAnnotations;
 namespace CodeCamper.Model
 {
     public class SessionBrief
     {
         public int Id { get; set; }
+        [Required(ErrorMessage = "Title is required")]
         public string Title { get; set; }
         public string Code { get; set; }
         public int SpeakerId { get; set; }

@@ -47,6 +47,7 @@
     <Compile Include="Room.cs" />
     <Compile Include="Session.cs" />
     <Compile Include="SessionBrief.cs" />
+    <Compile Include="Speaker.cs" />
     <Compile Include="TagGroup.cs" />
     <Compile Include="TimeSlot.cs" />
     <Compile Include="Track.cs" />
