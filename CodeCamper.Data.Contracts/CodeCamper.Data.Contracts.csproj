@@ -4,15 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3C403453-97B8-4582-BDE7-F7D68C3FC6CA}</ProjectGuid>
+    <ProjectGuid>{A3B944AE-DBED-4C7A-BD0F-6C081AAE2CA7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CodeCamper.Data</RootNamespace>
-    <AssemblyName>CodeCamper.Data</AssemblyName>
+    <RootNamespace>CodeCamper.Data.Contracts</RootNamespace>
+    <AssemblyName>CodeCamper.Data.Contracts</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
-    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -32,16 +30,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="NLipsum.Core">
-      <HintPath>..\packages\NLipsum.0.1.3\lib\net40\NLipsum.Core.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,36 +39,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configuration\AttendanceConfiguration.cs" />
-    <Compile Include="CodeCamperDbContext.cs" />
-    <Compile Include="EFRepository.cs" />
+    <Compile Include="IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SampleData\CodeCamperDatabaseInitializer.cs" />
-    <Compile Include="SampleData\PeopleNames.cs" />
-    <Compile Include="SampleData\RandomSelector.cs" />
-    <Compile Include="SampleData\SampleTextGenerator.cs" />
-    <Compile Include="SampleData\SampleTrack.cs" />
-    <Compile Include="SampleData\TagsGenerator.cs" />
-    <Compile Include="SampleData\TheChosen.cs" />
-    <Compile Include="Configuration\SessionConfiguration.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CodeCamper.Data.Contracts\CodeCamper.Data.Contracts.csproj">
-      <Project>{A3B944AE-DBED-4C7A-BD0F-6C081AAE2CA7}</Project>
-      <Name>CodeCamper.Data.Contracts</Name>
-    </ProjectReference>
     <ProjectReference Include="..\CodeCamper.Model\CodeCamper.Model.csproj">
       <Project>{ef051ff9-a39d-4a95-9b1e-1d22fe4efbb5}</Project>
       <Name>CodeCamper.Model</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

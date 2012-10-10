@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{406A97
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeCamper.Data.Contracts", "CodeCamper.Data.Contracts\CodeCamper.Data.Contracts.csproj", "{A3B944AE-DBED-4C7A-BD0F-6C081AAE2CA7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +34,10 @@ Global
 		{EF051FF9-A39D-4A95-9B1E-1D22FE4EFBB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF051FF9-A39D-4A95-9B1E-1D22FE4EFBB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF051FF9-A39D-4A95-9B1E-1D22FE4EFBB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3B944AE-DBED-4C7A-BD0F-6C081AAE2CA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3B944AE-DBED-4C7A-BD0F-6C081AAE2CA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3B944AE-DBED-4C7A-BD0F-6C081AAE2CA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3B944AE-DBED-4C7A-BD0F-6C081AAE2CA7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
