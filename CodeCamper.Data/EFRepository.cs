@@ -18,17 +18,17 @@ namespace CodeCamper.Data
 
         protected DbContext Context { get; private set; }
 
-        public T GetById(int id)
+        public virtual T GetById(int id)
         {
             return Set.Find(id);
         }
 
-        public IQueryable<T> GetAll()
+        public virtual IQueryable<T> GetAll()
         {
             return Set;
         }
 
-        public void Add(T entity)
+        public virtual void Add(T entity)
         {
             DbEntityEntry entry = Context.Entry(entity);
             if (entry.State == EntityState.Detached)
@@ -41,7 +41,7 @@ namespace CodeCamper.Data
             }
         }
 
-        public void Update(T entity)
+        public virtual void Update(T entity)
         {
             DbEntityEntry entry = Context.Entry(entity);
             if (entry.State == EntityState.Detached)
@@ -51,7 +51,7 @@ namespace CodeCamper.Data
             entry.State = EntityState.Modified;
         }
 
-        public void Delete(T entity)
+        public virtual void Delete(T entity)
         {
             DbEntityEntry entry = Context.Entry(entity);
             if (entry.State != EntityState.Deleted)
@@ -66,7 +66,7 @@ namespace CodeCamper.Data
             entry.State = EntityState.Modified;
         }
 
-        public void Delete(int id)
+        public virtual void Delete(int id)
         {
             var entity = GetById(id);
             if (entity == null) return; // already deleted
