@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using CodeCamper.Data;
 using CodeCamper.Data.Contracts;
 using CodeCamper.Model;
@@ -10,6 +11,9 @@ namespace CodeCamper.Test
     [TestFixture]
     public class IocTest
     {
+        protected StandardKernel Kernel { get; set; }
+        protected ICodeCamperUow Uow { get { return Kernel.Get<ICodeCamperUow>(); } }
+
         [SetUp]
         public void SetUp()
         {
@@ -24,10 +28,45 @@ namespace CodeCamper.Test
         }
 
         [Test]
-        public void CanGetAllSessions()
+        public void CanGetAllSessionsAndRooms()
         {
-            IQueryable<Session> sessions = Kernel.Get<ICodeCamperUow>().Sessions.GetAll();
+            var sessionsRepo = Uow.Sessions;
+            Assert.IsNotNull(sessionsRepo);
+
+            Console.WriteLine(DateTime.Now);
+            var sessions = sessionsRepo.GetAll().ToList();
             Assert.NotNull(sessions);
+
+            Console.WriteLine(DateTime.Now);
+            var roomsRepo = Uow.Rooms;
+            Assert.IsNotNull(roomsRepo);
+
+            Console.WriteLine(DateTime.Now);
+            var rooms = roomsRepo.GetAll().ToList();
+            Assert.NotNull(rooms);
+
+            Console.WriteLine(DateTime.Now);
+        }
+
+        [Test]
+        public void CanGetAllSessionsAndRooms2()
+        {
+            var sessionsRepo = Uow.Sessions;
+            Assert.IsNotNull(sessionsRepo);
+
+            Console.WriteLine(DateTime.Now);
+            var sessions = sessionsRepo.GetAll().ToList();
+            Assert.NotNull(sessions);
+
+            Console.WriteLine(DateTime.Now);
+            var roomsRepo = Uow.Rooms;
+            Assert.IsNotNull(roomsRepo);
+
+            Console.WriteLine(DateTime.Now);
+            var rooms = roomsRepo.GetAll().ToList();
+            Assert.NotNull(rooms);
+
+            Console.WriteLine(DateTime.Now);
         }
 
         protected void InitializeKernel()
@@ -36,6 +75,5 @@ namespace CodeCamper.Test
             Kernel.Load<CodeCamperDataNinjectModule>();
         }
 
-        protected StandardKernel Kernel { get; set; }
     }
 }
