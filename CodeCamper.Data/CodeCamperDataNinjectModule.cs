@@ -3,6 +3,7 @@ using CodeCamper.Data.Contracts;
 using CodeCamper.Data.Ninject;
 using CodeCamper.Model;
 using Ninject.Modules;
+using Ninject.Extensions.Conventions;
 
 namespace CodeCamper.Data
 {
@@ -10,11 +11,20 @@ namespace CodeCamper.Data
     {
         public override void Load()
         {
-            Bind<DbContext>().To<CodeCamperDbContext>().InRequestFallbackScope();
-            Bind<ICodeCamperUow>().To<CodeCamperUow>().InRequestFallbackScope();
+            // TODO: convention binding
+            //Kernel.Bind(x => x
+            //    .FromThisAssembly()
+            //    .SelectAllClasses()
+            //    .BindAllInterfaces()
+            //    .Configure((c, s) => c.Named(s.Name))
+            //);
 
-            Bind<IRepository<Room>>().To<EFRepository<Room>>().InRequestFallbackScope();
-            Bind<ISessionsRepository>().To<SessionsRepository>().InRequestFallbackScope();
+            // standard binding 
+            Bind<DbContext>().To<CodeCamperDbContext>().InRequestOrThreadScope();
+            Bind<ICodeCamperUow>().To<CodeCamperUow>().InRequestOrThreadScope();
+
+            Bind<IRepository<Room>>().To<EFRepository<Room>>().InRequestOrThreadScope();
+            Bind<ISessionsRepository>().To<SessionsRepository>().InRequestOrThreadScope();
         }
     }
 }

@@ -38,6 +38,9 @@
     <Reference Include="Ninject">
       <HintPath>..\packages\Ninject.3.0.1.10\lib\net45-full\Ninject.dll</HintPath>
     </Reference>
+    <Reference Include="Ninject.Extensions.Conventions">
+      <HintPath>..\packages\ninject.extensions.conventions.3.0.0.11\lib\net45-full\Ninject.Extensions.Conventions.dll</HintPath>
+    </Reference>
     <Reference Include="Ninject.Web.Common, Version=3.0.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Ninject.Web.Common.3.0.0.7\lib\net45-full\Ninject.Web.Common.dll</HintPath>
@@ -48,6 +51,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AttendanceRepository.cs" />
@@ -58,7 +62,7 @@
     <Compile Include="CodeCamperDataNinjectModule.cs" />
     <Compile Include="PersonsRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Ninject\RequestFallbackScopeExtensions.cs" />
+    <Compile Include="Ninject\RequestOrThreadScopeExtensions.cs" />
     <Compile Include="SampleData\CodeCamperDatabaseInitializer.cs" />
     <Compile Include="SampleData\PeopleNames.cs" />
     <Compile Include="SampleData\RandomSelector.cs" />
