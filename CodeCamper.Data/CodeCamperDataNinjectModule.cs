@@ -11,7 +11,24 @@ namespace CodeCamper.Data
     {
         public override void Load()
         {
-            // TODO: convention binding
+            // standard binding 
+
+            // core data
+            Bind<DbContext>().To<CodeCamperDbContext>().InRequestOrThreadScope();
+            Bind<ICodeCamperUow>().To<CodeCamperUow>().InRequestOrThreadScope();
+
+            // default repos
+            Bind<IRepository<Room>>().To<EFRepository<Room>>().InRequestOrThreadScope();
+            Bind<IRepository<TimeSlot>>().To<EFRepository<TimeSlot>>().InRequestOrThreadScope();
+            Bind<IRepository<Track>>().To<EFRepository<Track>>().InRequestOrThreadScope();
+
+            // custom repos
+            Bind<IAttendanceRepository>().To<AttendanceRepository>().InRequestOrThreadScope();
+            Bind<IPersonsRepository>().To<PersonsRepository>().InRequestOrThreadScope();
+            Bind<ISessionsRepository>().To<SessionsRepository>().InRequestOrThreadScope();
+
+
+            // TODO: try to use convention binding at least for pairs IType/Type
             //Kernel.Bind(x => x
             //    .FromThisAssembly()
             //    .SelectAllClasses()
@@ -19,12 +36,6 @@ namespace CodeCamper.Data
             //    .Configure((c, s) => c.Named(s.Name))
             //);
 
-            // standard binding 
-            Bind<DbContext>().To<CodeCamperDbContext>().InRequestOrThreadScope();
-            Bind<ICodeCamperUow>().To<CodeCamperUow>().InRequestOrThreadScope();
-
-            Bind<IRepository<Room>>().To<EFRepository<Room>>().InRequestOrThreadScope();
-            Bind<ISessionsRepository>().To<SessionsRepository>().InRequestOrThreadScope();
         }
     }
 }

@@ -1,57 +1,31 @@
-﻿using System;
-using System.Linq;
+﻿using System.Data.Entity;
 using CodeCamper.Data;
 using CodeCamper.Data.Contracts;
+using CodeCamper.Model;
 using NUnit.Framework;
 using Ninject;
 
 namespace CodeCamper.Test
 {
     [TestFixture]
-    public class IocTest
+    public class IocTest : TestBase
     {
-        protected StandardKernel Kernel { get; set; }
-        protected ICodeCamperUow Uow { get { return Kernel.Get<ICodeCamperUow>(); } }
-
-        [SetUp]
-        public void SetUp()
-        {
-            InitializeKernel();
-        }
-
         [Test]
-        public void CanGetUowInstance()
+        public void CanGetInstancesViaIoc()
         {
-            var uow = Kernel.Get<ICodeCamperUow>();
-            Assert.NotNull(uow);
+            // core data
+            Assert.NotNull(Kernel.Get<DbContext>() as CodeCamperDbContext);
+            Assert.NotNull(Kernel.Get<ICodeCamperUow>() as CodeCamperUow);
+
+            // default repos
+            Assert.NotNull(Kernel.Get<IRepository<Room>>() as EFRepository<Room>);
+            Assert.NotNull(Kernel.Get<IRepository<TimeSlot>>() as EFRepository<TimeSlot>);
+            Assert.NotNull(Kernel.Get<IRepository<Track>>() as EFRepository<Track>);
+
+            // custom repos
+            Assert.NotNull(Kernel.Get<IAttendanceRepository>() as AttendanceRepository);
+            Assert.NotNull(Kernel.Get<IPersonsRepository>() as PersonsRepository);
+            Assert.NotNull(Kernel.Get<ISessionsRepository>() as SessionsRepository);
         }
-
-        [Test]
-        public void CanGetAllSessionsAndRooms()
-        {
-            var sessionsRepo = Uow.Sessions;
-            Assert.IsNotNull(sessionsRepo);
-
-            Console.WriteLine(DateTime.Now);
-            var sessions = sessionsRepo.GetAll().ToList();
-            Assert.NotNull(sessions);
-
-            Console.WriteLine(DateTime.Now);
-            var roomsRepo = Uow.Rooms;
-            Assert.IsNotNull(roomsRepo);
-
-            Console.WriteLine(DateTime.Now);
-            var rooms = roomsRepo.GetAll().ToList();
-            Assert.NotNull(rooms);
-
-            Console.WriteLine(DateTime.Now);
-        }
-
-        protected void InitializeKernel()
-        {
-            Kernel = new StandardKernel();
-            Kernel.Load<CodeCamperDataNinjectModule>();
-        }
-
     }
 }
