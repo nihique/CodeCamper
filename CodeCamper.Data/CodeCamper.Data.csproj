@@ -58,6 +58,7 @@
     <Compile Include="CodeCamperDataNinjectModule.cs" />
     <Compile Include="PersonsRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Ninject\RequestFallbackScopeExtensions.cs" />
     <Compile Include="SampleData\CodeCamperDatabaseInitializer.cs" />
     <Compile Include="SampleData\PeopleNames.cs" />
     <Compile Include="SampleData\RandomSelector.cs" />

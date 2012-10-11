@@ -1,8 +1,8 @@
 ﻿using System.Data.Entity;
 using CodeCamper.Data.Contracts;
+using CodeCamper.Data.Ninject;
 using CodeCamper.Model;
 using Ninject.Modules;
-using Ninject.Web.Common;
 
 namespace CodeCamper.Data
 {
@@ -10,11 +10,11 @@ namespace CodeCamper.Data
     {
         public override void Load()
         {
-            Bind<DbContext>().To<CodeCamperDbContext>().InRequestScope();
-            Bind<ICodeCamperUow>().To<CodeCamperUow>().InThreadScope();
+            Bind<DbContext>().To<CodeCamperDbContext>().InRequestFallbackScope();
+            Bind<ICodeCamperUow>().To<CodeCamperUow>().InRequestFallbackScope();
 
-            Bind<IRepository<Room>>().To<EFRepository<Room>>().InRequestScope();
-            Bind<ISessionsRepository>().To<SessionsRepository>().InRequestScope();
+            Bind<IRepository<Room>>().To<EFRepository<Room>>().InRequestFallbackScope();
+            Bind<ISessionsRepository>().To<SessionsRepository>().InRequestFallbackScope();
         }
     }
 }

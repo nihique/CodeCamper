@@ -2,7 +2,6 @@
 using System.Linq;
 using CodeCamper.Data;
 using CodeCamper.Data.Contracts;
-using CodeCamper.Model;
 using NUnit.Framework;
 using Ninject;
 
@@ -29,27 +28,6 @@ namespace CodeCamper.Test
 
         [Test]
         public void CanGetAllSessionsAndRooms()
-        {
-            var sessionsRepo = Uow.Sessions;
-            Assert.IsNotNull(sessionsRepo);
-
-            Console.WriteLine(DateTime.Now);
-            var sessions = sessionsRepo.GetAll().ToList();
-            Assert.NotNull(sessions);
-
-            Console.WriteLine(DateTime.Now);
-            var roomsRepo = Uow.Rooms;
-            Assert.IsNotNull(roomsRepo);
-
-            Console.WriteLine(DateTime.Now);
-            var rooms = roomsRepo.GetAll().ToList();
-            Assert.NotNull(rooms);
-
-            Console.WriteLine(DateTime.Now);
-        }
-
-        [Test]
-        public void CanGetAllSessionsAndRooms2()
         {
             var sessionsRepo = Uow.Sessions;
             Assert.IsNotNull(sessionsRepo);

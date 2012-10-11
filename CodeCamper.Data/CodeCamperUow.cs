@@ -1,4 +1,4 @@
-using System;
+using System.Diagnostics;
 using CodeCamper.Data.Contracts;
 using CodeCamper.Model;
 using Ninject;
@@ -9,7 +9,7 @@ namespace CodeCamper.Data
     {
         public CodeCamperUow(CodeCamperDbContext context, IKernel kernel)
         {
-            Console.WriteLine("CodeCamperUow ctor");
+            Debug.WriteLine("CodeCamperUow ctor");
             Context = context;
             Kernel = kernel;
         }

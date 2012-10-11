@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Mvc;
 using CodeCamper.Data.Contracts;
 
 namespace CodeCamper.Web.Controllers
@@ -15,7 +16,10 @@ namespace CodeCamper.Web.Controllers
 
         public ActionResult Index()
         {
-            var sessions = Uow.Sessions.GetAll();
+            var sessionsRepo = Uow.Sessions;
+            var sessions = sessionsRepo.GetAll().ToList();
+            var roomsRepo = Uow.Rooms;
+            var rooms = roomsRepo.GetAll().ToList();
             return View();
         }
     }
