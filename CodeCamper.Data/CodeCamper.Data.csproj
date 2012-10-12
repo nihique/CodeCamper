@@ -35,6 +35,9 @@
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
     <Reference Include="Ninject">
       <HintPath>..\packages\Ninject.3.0.1.10\lib\net45-full\Ninject.dll</HintPath>
     </Reference>
@@ -55,7 +58,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AttendanceRepository.cs" />
-    <Compile Include="CodeCamperUow.cs" />
+    <Compile Include="NinjectServiceLocator.cs" />
+    <Compile Include="CodeCamperNinjectKernelConfigurator.cs" />
+    <Compile Include="UnitOfWork.cs" />
     <Compile Include="Configuration\AttendanceConfiguration.cs" />
     <Compile Include="CodeCamperDbContext.cs" />
     <Compile Include="EFRepository.cs" />

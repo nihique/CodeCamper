@@ -5,11 +5,11 @@ namespace CodeCamper.Web.Controllers
 {
     public abstract class ApiControllerBase : ApiController
     {
-        protected ApiControllerBase(ICodeCamperUow uow)
+        protected ApiControllerBase(IUnitOfWork uow)
         {
             Uow = uow;
         }
 
-        protected ICodeCamperUow Uow { get; private set; }
+        protected IUnitOfWork Uow { get; private set; }
     }
 }

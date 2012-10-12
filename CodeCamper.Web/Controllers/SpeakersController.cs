@@ -8,7 +8,7 @@ namespace CodeCamper.Web.Controllers
 {
     public class SpeakersController : ApiControllerBase
     {
-        public SpeakersController(ICodeCamperUow uow) : base(uow)
+        public SpeakersController(IUnitOfWork uow) : base(uow)
         {
         }
 

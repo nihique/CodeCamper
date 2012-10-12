@@ -1,8 +1,10 @@
-using System.Reflection;
+using System.Web.Http;
 using CodeCamper.Data;
+using CodeCamper.Web.App_Start;
+using WebApiContrib.IoC.Ninject;
 
-[assembly: WebActivator.PreApplicationStartMethod(typeof(CodeCamper.Web.App_Start.NinjectWebCommon), "Start")]
-[assembly: WebActivator.ApplicationShutdownMethodAttribute(typeof(CodeCamper.Web.App_Start.NinjectWebCommon), "Stop")]
+[assembly: WebActivator.PreApplicationStartMethod(typeof(NinjectWebCommon), "Start")]
+[assembly: WebActivator.ApplicationShutdownMethodAttribute(typeof(NinjectWebCommon), "Stop")]
 
 namespace CodeCamper.Web.App_Start
 {
@@ -46,18 +48,12 @@ namespace CodeCamper.Web.App_Start
             kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
             kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
             
-            RegisterServices(kernel);
+            new CodeCamperNinjectKernelConfigurator(kernel).Configure();
+
+            GlobalConfiguration.Configuration.DependencyResolver = new NinjectResolver(kernel);
+
             return kernel;
         }
 
-        /// <summary>
-        /// Load your modules or register your services here!
-        /// </summary>
-        /// <param name="kernel">The kernel.</param>
-        private static void RegisterServices(IKernel kernel)
-        {
-            //kernel.Load(AppDomain.CurrentDomain.GetAssemblies());
-            kernel.Load<CodeCamperDataNinjectModule>();
-        }        
     }
 }

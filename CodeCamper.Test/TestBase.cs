@@ -8,7 +8,7 @@ namespace CodeCamper.Test
     public class TestBase
     {
         protected StandardKernel Kernel { get; set; }
-        protected ICodeCamperUow Uow { get { return Kernel.Get<ICodeCamperUow>(); } }
+        protected IUnitOfWork Uow { get { return Kernel.Get<IUnitOfWork>(); } }
 
         [SetUp]
         public void SetUp()
@@ -18,8 +18,9 @@ namespace CodeCamper.Test
 
         protected void InitializeKernel()
         {
-            Kernel = new StandardKernel();
-            Kernel.Load<CodeCamperDataNinjectModule>();
+            var kernel = new StandardKernel();
+            new CodeCamperNinjectKernelConfigurator(kernel).Configure();
+            Kernel = kernel;
         }
     }
 }

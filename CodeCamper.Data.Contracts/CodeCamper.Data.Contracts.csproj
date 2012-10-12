@@ -35,7 +35,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IAttendanceRepository.cs" />
-    <Compile Include="ICodeCamperUow.cs" />
+    <Compile Include="IUnitOfWork.cs" />
     <Compile Include="IPersonsRepository.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="ISessionsRepository.cs" />

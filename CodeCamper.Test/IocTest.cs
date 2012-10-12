@@ -15,7 +15,7 @@ namespace CodeCamper.Test
         {
             // core data
             Assert.NotNull(Kernel.Get<DbContext>() as CodeCamperDbContext);
-            Assert.NotNull(Kernel.Get<ICodeCamperUow>() as CodeCamperUow);
+            Assert.NotNull(Kernel.Get<IUnitOfWork>() as UnitOfWork);
 
             // default repos
             Assert.NotNull(Kernel.Get<IRepository<Room>>() as EFRepository<Room>);

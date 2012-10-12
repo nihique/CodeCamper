@@ -15,7 +15,7 @@ namespace CodeCamper.Data
 
             // core data
             Bind<DbContext>().To<CodeCamperDbContext>().InRequestOrThreadScope();
-            Bind<ICodeCamperUow>().To<CodeCamperUow>().InRequestOrThreadScope();
+            Bind<IUnitOfWork>().To<UnitOfWork>().InRequestOrThreadScope();
 
             // default repos
             Bind<IRepository<Room>>().To<EFRepository<Room>>().InRequestOrThreadScope();
