@@ -12,6 +12,7 @@ namespace CodeCamper.Data
             Debug.WriteLine("new CodeCamperUow()");
             Context = context;
             Kernel = kernel;
+            SetupDbContext();
         }
 
         // core data
@@ -31,6 +32,13 @@ namespace CodeCamper.Data
         public void Commit()
         {
             Context.SaveChanges();
+        }
+
+        private void SetupDbContext()
+        {
+            Context.Configuration.ProxyCreationEnabled = false;
+            Context.Configuration.LazyLoadingEnabled = false;
+            Context.Configuration.ValidateOnSaveEnabled = false;
         }
 
     }
