@@ -1,6 +1,7 @@
 ﻿using System.Data.Entity;
 using CodeCamper.Data.Contracts;
 using CodeCamper.Data.Ninject;
+using CodeCamper.Data.Repositories;
 using CodeCamper.Model;
 using Ninject.Modules;
 using Ninject.Extensions.Conventions;
