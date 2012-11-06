@@ -16,5 +16,10 @@ namespace CodeCamper.Web.Controllers
         {
             return Uow.Persons.GetSpeakers().OrderBy(s => s.LastName);
         }
+
+        public Speaker Get(int id)
+        {
+            return Uow.Persons.GetSpeakers().FirstOrDefault(x => x.Id == id);
+        }
     }
 }

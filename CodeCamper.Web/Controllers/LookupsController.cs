@@ -24,6 +24,19 @@ namespace CodeCamper.Web.Controllers
             return lookups;
         }
 
+        // GET api/lookups
+        [ActionName("all")]
+        public Lookups GetLookups()
+        {
+            var lookups = new Lookups
+                {
+                    Rooms = GetRooms().ToList(),
+                    TimeSlots = GetTimeSlots().ToList(),
+                    Tracks = GetTracks().ToList(),
+                };
+            return lookups;
+        }
+
         // GET api/lookups/rooms
         [ActionName("rooms")]
         public IEnumerable<Room> GetRooms()
